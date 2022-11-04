@@ -1,0 +1,6 @@
+rootProject.name = 'inventory-management'
+
+include 'authentication-server'
+include 'inventory-server'
+
+

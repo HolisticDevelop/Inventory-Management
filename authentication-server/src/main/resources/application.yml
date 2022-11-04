@@ -1,0 +1,30 @@
+server.port: 7002
+
+jwt:
+  signing:
+    key: ymLTU8rq83j4fmJZj60wh4OrMNuntIj4fmJ
+
+logging:
+  file:
+    name: authentication-server.log
+server.error.include-message: always
+
+# Strongly recommend to set this property to "none" in a production environment!
+spring.jpa.hibernate.ddl-auto: update
+spring:
+  main:
+    allow-circular-references: true
+  datasource:
+    password:
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/authentication-db
+    username: pc
+    driver-class-name: com.mysql.cj.jdbc.Driver
+---
+spring.config.activate.on-profile: docker
+
+server.port: 8080
+
+spring.datasource:
+  url: jdbc:mysql://mysql/authentication-db
+  password: pwd
+  username: admin
